@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1= title
+  p.muted
+    span posted at :
+    span= article.created_at
+  div.container
+    != article.body
+  hr
+  div
+    span comments
+  - if(typeof article.comments !== 'undefined') {
+    - each comment in article.comments
+      div
+        p
+          span= comment.person
+          span   -
+          span= comment.created_at
+        p= comment.comment
+      hr
+  - }
+  div
+    form(method="post", action="/blog/add_comment/")
+      input(type="hidden", name="_id", value=article._id)
+      div
+        label(for="person") Author
+        input(type="text", name="person")
+      div
+        label(for="comment") Comment
+        textarea(name="comment", rows=5)
+      div
+        input(type="submit", value="Send")
+

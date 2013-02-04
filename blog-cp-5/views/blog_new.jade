@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  form(method="post")
+    div
+      label(for="title") Title :
+      input(type="text", name="title")
+    div
+      label(for="slug") Slug :
+      input(type="text", name="slug")
+    div
+      label(for="body") Body :
+      textarea(name="body", rows=15)
+    div
+      input(type="submit", value="Send")
+

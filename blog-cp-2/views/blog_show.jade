@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p.muted
+    span posted at :
+    span= article.created_at
+  div.container
+    != article.body

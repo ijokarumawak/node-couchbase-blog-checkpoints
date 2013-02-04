@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h2= title
+  div
+    - each article in articles
+      p
+        span= article.created_at
+        span  - 
+        a(href="/blog/" + (article.slug ? article.slug : article._id))!= article.title
